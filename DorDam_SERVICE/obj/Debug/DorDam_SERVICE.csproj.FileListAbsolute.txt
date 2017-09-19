@@ -1,0 +1,11 @@
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_SERVICE.dll
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_SERVICE.pdb
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_DATA.dll
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_ENTITY.dll
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_DATA.pdb
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\DorDam_ENTITY.pdb
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\obj\Debug\DorDam_SERVICE.csprojResolveAssemblyReference.cache
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\obj\Debug\DorDam_SERVICE.dll
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\obj\Debug\DorDam_SERVICE.pdb
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\EntityFramework.dll
+G:\asp\DorDam_FinalProject\DorDam_SERVICE\bin\Debug\EntityFramework.xml

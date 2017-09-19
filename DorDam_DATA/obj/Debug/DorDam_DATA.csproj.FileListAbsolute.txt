@@ -1,0 +1,12 @@
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\DorDam_DATA.dll.config
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\DorDam_DATA.dll
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\DorDam_DATA.pdb
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\DorDam_ENTITY.dll
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\EntityFramework.dll
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\EntityFramework.SqlServer.dll
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\DorDam_ENTITY.pdb
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\EntityFramework.xml
+G:\asp\DorDam_FinalProject\DorDam_DATA\bin\Debug\EntityFramework.SqlServer.xml
+G:\asp\DorDam_FinalProject\DorDam_DATA\obj\Debug\DorDam_DATA.csprojResolveAssemblyReference.cache
+G:\asp\DorDam_FinalProject\DorDam_DATA\obj\Debug\DorDam_DATA.dll
+G:\asp\DorDam_FinalProject\DorDam_DATA\obj\Debug\DorDam_DATA.pdb

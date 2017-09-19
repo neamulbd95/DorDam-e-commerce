@@ -1,0 +1,70 @@
+﻿@model DorDam.Models.ReportDetails
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>Most Selling Product</strong>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Product Picture</th>
+                            <th>Product Name</th>
+                            <th>Product Category</th>
+                            <th>Product Section</th>
+                            <th>Product Price</th>
+                            <th>Total Buying Quantity</th>
+                        </tr>
+                        <tr>
+                            <td><img src="@Url.Content(@Model.productPicture)" class="img-circle" alt="Cinque Terre" width="100" height="100" /></td>
+                            <td>@Html.DisplayFor(model => model.productName)</td>
+                            <td align="center">@Html.DisplayFor(model => model.category)</td>
+                            <td>@Html.DisplayFor(model => model.subCategory)</td>
+                            <td align="center">@Html.DisplayFor(model => model.productPrice)</td>
+                            <td align="center">@Html.DisplayFor(model => model.totalSellingQuantity)</td>
+                        </tr>                       
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <strong>Income</strong>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    <tr>
+                        <td colspan="1">
+                            <a href="/Admin/Index/">
+                                <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back to Admin Home
+                            </a>
+                        </td>
+                        <td colspan="3"><strong>Total Income</strong></td>
+                        <td align="center"><strong>@ViewBag.totalSellingPrice</strong></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Title{
+    Admin
+}
+
+@section header{
+    Report
+}

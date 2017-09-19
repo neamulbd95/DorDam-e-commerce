@@ -1,0 +1,93 @@
+﻿@model IEnumerable<DorDam_ENTITY.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Common/Common_View.cshtml";
+    
+}
+
+<div class="container-fluid">
+    <div class="row">        
+        @foreach (var item in Model)
+        {
+            <div class="col-sm-3" style="background-color:lavender;">
+                <span>
+                    <a href="/SeclectProduct/SelectItem?productID=@item.Id">
+                        <img src="@Url.Content(item.Product_Picture)" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+                        <label align="center">@Html.DisplayFor(modelItem => item.Product_Name)</label>
+                    </a><br />
+                </span>
+            </div>
+            <div class="col-sm-1"></div>
+        }
+       
+    </div>
+</div>
+
+@section Title{
+    Search
+}
+
+
+@section header{
+    Search Item
+}
+
+<!--<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Category_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sub_Category_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_Picture)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Product_About)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sub_Category_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_Picture)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product_About)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>-->

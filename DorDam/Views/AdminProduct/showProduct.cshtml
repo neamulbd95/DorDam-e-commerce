@@ -1,0 +1,101 @@
+﻿@model IEnumerable<DorDam.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "showProduct";
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+<br />
+<div class="container">
+    <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for Product Name...." title="Type in a name">
+</div>
+
+<br />
+
+<table class="table table-hover" id="myTable">
+    <thead>
+        <tr>           
+            <th>Product Name</th>
+            <th>Product Picture</th>
+            <th>Product Category</th>
+            <th>Product Section</th>
+            <th>Product Quantity</th>
+            <th>Product Price</th>
+            <th>About</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.productName)</td>
+                <td><img src="@Url.Content(item.productPicture)" class="img-circle" alt="Cinque Terre" width="100" height="100" /></td>
+                <td>@Html.DisplayFor(modelItem => item.productCategoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.productSubCategoryName)</td>
+                <td>@Html.DisplayFor(modelItem => item.productQuantity)</td>
+                <td>@Html.DisplayFor(modelItem => item.productPrice)</td>
+                <td>@Html.DisplayFor(modelItem => item.productAbout)</td>
+
+                <td>
+                    <a href="/AdminProduct/Edit/@item.productID">
+                        <i class="fa fa-pencil fa-fw"></i>Edit
+                    </a>
+                    &nbsp; &nbsp;
+                    <a href="/AdminProduct/Delete/@item.productID" style="color:red">
+                        <i class="fa fa-trash-o fa-lg"></i>Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<table class="table table-bordered">
+    <thead></thead>
+    <tbody>
+        <tr>
+            <td colspan="1">
+                <a href="/AdminProduct/Index/">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back to Category
+                </a>
+            </td>
+            <td colspan="6"></td>
+            <td colspan="1">
+                @using (Html.BeginForm("addCategory", "AdminProduct"))
+                {
+                    <button type="submit" class="btn btn-primary active" style="width:100%"><i class="fa fa-plus"></i>&nbsp; Add New</button>
+                }
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+@section Title{
+    Description
+}
+
+@section header{
+    @ViewBag.CategoryName Products
+}
+

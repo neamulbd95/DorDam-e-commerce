@@ -1,0 +1,86 @@
+﻿@model IEnumerable<DorDam_ENTITY.Cart>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Product Picture</th>
+            <th>Product Name</th>
+            <th>Product Category</th>
+            <th>Product Section</th>
+            <th>Buying Quantity</th>
+            <th>Product Price</th>
+            <th>Total Price</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+        <tr>       
+            <td><img src="@Url.Content(item.ProductPicture)" class="img-circle" alt="Cinque Terre" width="100" height="100" /></td>
+            <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductCategory)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductSubCategory)</td>
+            <td>@Html.DisplayFor(modelItem => item.BuyingQuantity)</td>
+            <td>@Html.DisplayFor(modelItem => item.ProductPrice)</td>
+            <td>
+                @{
+                    int x = item.BuyingQuantity * item.ProductPrice;                
+                }
+                @x
+            </td>
+            <td>
+                <a href="/Cart/UpdateIncreaseOne/@item.Id">
+                    <span class="glyphicon glyphicon-plus" style="color:green"></span>
+                </a>
+                &nbsp; &nbsp;
+                <a href="/Cart/UpdateDecresceOne/@item.Id">
+                    <span class="glyphicon glyphicon-minus" style="color:red"></span>
+                </a>
+                &nbsp; &nbsp;
+                <a href="/Cart/Delete/@item.Id">
+                    <!--<span class="glyphicon glyphicon-remove" style="color:black"></span>--> 
+                        <i class="fa fa-trash-o fa-lg"></i>
+                </a>                
+            </td>
+        </tr>        
+}        
+        <tr>
+            <td colspan="5"><strong class="">Total</strong></td>
+            <td><strong>&#2547; &nbsp;@ViewBag.totalPrice</strong></td>
+        </tr>
+
+        <tr>
+            <td colspan="4"></td>
+            <td colspan="2">
+                @using (Html.BeginForm("Index","BuyingConfimation"))
+                {
+                    <input type="submit" class="btn btn-primary active" style="width:100%" value="Check-Out">
+                }
+            </td>
+
+            <td colspan="2">
+                @using (Html.BeginForm("fullCartDelete", "Cart"))
+                {
+                    <!--<input type="submit" class="btn btn-primary active" style="width:100%" value="Delete All Item">-->
+                    <button type="submit" class="btn btn-danger active"><i class="fa fa-trash-o fa-lg"></i>&nbsp;Delete All Item</button>
+                }
+            </td>
+        </tr>
+    </tbody>                 
+</table>
+
+<br /><hr /> <br />
+
+@section Title{
+    Cart
+}
+
+@section header{
+    Cart Details
+}
+

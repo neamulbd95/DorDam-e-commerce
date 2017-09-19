@@ -1,0 +1,59 @@
+﻿@model DorDam_ENTITY.User_Info
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">        
+        <table class="table table-striped table-hover">
+            <tbody>
+                <tr>
+                    <td><strong>User Name</strong> </td>
+                    <td><input type="text" id="username" name="usernametxt" class="form-control" value="@Html.DisplayFor(model => model.User_name)" disabled></td>
+                </tr>
+                <tr>
+                    <td><strong>Full Name</strong></td>
+                    <td><input type="text" id="fullname" name="fullnametxt" class="form-control" value="@Html.DisplayFor(model => model.User_Full_name)" disabled></td>
+                </tr>
+                <tr>
+                    <td><strong>Email</strong></td>
+                    <td><input type="email" id="email" name="emailtxt" class="form-control" value="@Html.DisplayFor(model => model.User_Email)" disabled></td>
+                </tr>
+                <tr>
+                    <td><strong>Mobile Number</strong></td>
+                    <td><input type="text" id="mobile" name="mobiletxt" class="form-control" value="@Html.DisplayFor(model => model.User_Mobile)" disabled></td>
+                </tr>
+                <tr>
+                    <td><strong>Gender</strong></td>
+                    <td><input type="text" id="gender" name="gendertxt" class="form-control" value="@Html.DisplayFor(model => model.User_Gender)" disabled></td>
+
+                </tr>
+                <tr>
+                    <td><strong>Date of Birth</strong></td>
+                    <td><input type="text" name="DOB" value="@Html.DisplayFor(model => model.User_DateOfBirth)" disabled></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right"><a class="btn btn-primary" href="/UserProfile/Edit/"><i class="fa fa-edit"></i>&nbsp;Edit Information</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+
+@section Title{
+    Profile
+}
+
+@section header{
+   @Html.DisplayFor(model => model.User_name) Profile
+}
+

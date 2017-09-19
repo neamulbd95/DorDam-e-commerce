@@ -1,0 +1,73 @@
+﻿@{
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-product-hunt" aria-hidden="true"></i>&nbsp;<strong>Product Options</strong>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td align="center"><a href="/AdminProduct/Index/"><i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>&nbsp; <strong>View Products</strong></a></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><a href="/AdminProduct/addCategory/"><i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>&nbsp; <strong>Add Product</strong></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>&nbsp; <strong>User Options</strong>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td align="center"><a href="/AdminUser/Index/"><i class="fa fa-list-ul fa-2x" aria-hidden="true"></i>&nbsp; <strong>View Users</strong></a></td>
+                        </tr>
+                        <tr>
+                            <td align="center"><a href="/AdminUserHistory/Index/"><i class="fa fa-history fa-2x" aria-hidden="true"></i>&nbsp; <strong>User Buying History</strong></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading"></div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <td align="center"><a href="/AdminReport/Index/"><i class="fa fa-flag fa-2x" aria-hidden="true"></i>&nbsp; <strong>Report</strong></a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Title{
+    Admin
+}
+
+
+@section header{
+    Welcome Admin
+}

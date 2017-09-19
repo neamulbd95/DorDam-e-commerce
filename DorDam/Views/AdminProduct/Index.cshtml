@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DorDam_ENTITY.Category>
+
+@{
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-tags" aria-hidden="true"></i>&nbsp;<strong>Category</strong>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        
+@using (Html.BeginForm("showProduct", "AdminProduct"))
+{                       <tr>
+                            <td align="center">
+                                <div class="form-group">
+                                    <select class="form-control" name="categoryDropDown">
+                                        @foreach (var item in Model)
+                                        {
+                                            <option value="@item.Id">@item.Category_Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right"><input type="submit" class="btn btn-info" name="submitButton" value="Go" /></td>
+                        </tr>
+}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Title{
+    Admin
+}
+
+
+@section header{
+    Category Selection
+}
+

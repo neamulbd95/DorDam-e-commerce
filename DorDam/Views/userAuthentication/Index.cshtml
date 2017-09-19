@@ -1,0 +1,38 @@
+﻿@{
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<div class="container">
+@using (Html.BeginForm("checkLogin", "userAuthentication"))
+{ 
+    <div class="form-signin">
+        <h2 class="form-signin-heading"></h2>
+        <label for="inputEmail" class="sr-only">User Name</label>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="User Name" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="pass" class="form-control" placeholder="Password" required><br />
+        <div class="checkbox">
+                <strong>@ViewBag.ErrorMsg</strong>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    </div>
+}
+    <br />
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">&nbsp; &nbsp;
+            <label>
+                Don't you have any Account ? &nbsp; &nbsp; Press <strong>
+                    <a href="/UserProfile/Create"> <i class="fa fa-sign-in" aria-hidden="true"></i>Sign Up</a>
+                </strong> to Creat an Account.
+            </label>
+        </div>
+</div>
+
+    @section Title{
+        DorDam
+    }
+
+
+    @section header{
+        Sign in
+    }

@@ -1,0 +1,87 @@
+﻿@model DorDam_ENTITY.Product
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+@using (Html.BeginForm("Edit","AdminProduct"))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+        <table class="table table-striped table-hover">
+            <tbody>
+                @Html.HiddenFor(model => model.Id)
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Product_Price)
+                        </div>
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.TextAreaFor(model => model.Product_Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Product_Price)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Product_Quantity)
+                        </div>                            
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.TextAreaFor(model => model.Product_Quantity, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Product_Quantity)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="editor-label">
+                            @Html.LabelFor(model => model.Product_About)
+                        </div>                            
+                    </td>
+                    <td>
+                        <div class="editor-field">
+                            @Html.TextAreaFor(model => model.Product_About, new {style = "width: 350px; height: 100px;", @class="form-control" })
+                            @Html.ValidationMessageFor(model => model.Product_About)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td align="right"><input type="submit" class="btn btn-success"  value="Update" /></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+
+</div>
+
+}
+
+<div>
+    <a href="/AdminProduct/Index/">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back to Category
+    </a>
+</div>
+
+
+@section Title{
+    Admin
+}
+
+
+@section header{
+       @ViewBag.productName
+}

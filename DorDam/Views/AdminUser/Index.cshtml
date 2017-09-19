@@ -1,0 +1,80 @@
+﻿@model IEnumerable<DorDam_ENTITY.User_Info>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+<br />
+<div class="container">
+    <input type="text" class="form-control" id="myInput" onkeyup="myFunction()" placeholder="Search for Usernames.." title="Type in a name">
+</div>
+
+<br />
+<table class="table table-hover" id="myTable">
+    <thead>
+        <tr>
+            <th>User Name</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Gender</th>
+            <th>Date of Birth</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.User_name)</td>
+                <td>@Html.DisplayFor(modelItem => item.User_Full_name)</td>
+                <td>@Html.DisplayFor(modelItem => item.User_Email)</td>
+                <td>@Html.DisplayFor(modelItem => item.User_Mobile)</td>
+                <td>@Html.DisplayFor(modelItem => item.User_Gender)</td>
+                <td>@Html.DisplayFor(modelItem => item.User_DateOfBirth)</td>
+
+                <td>
+                    <a href="/AdminUser/DeleteUser/@item.Id" style="color:red">
+                        <i class="fa fa-ban fa-lg"></i>&nbsp;Ban
+                    </a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="1">
+                <a href="/Admin/Index/">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>&nbsp;Back to Admin Home
+                </a>
+            </td>
+            <td colspan="6"></td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    function myFunction() {
+        var input, filter, table, tr, td, i;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+@section Title{
+    Admin
+}
+
+@section header{
+    User List 
+}

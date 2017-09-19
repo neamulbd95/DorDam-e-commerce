@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DorDam.Models.BuyingHisotyDetails>
+
+@{
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <strong>Buying List</strong>
+                    <a href="/Home/Index" class="pull-right"><i class="glyphicon glyphicon-plus"></i> AddNew</a>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Product Picture</th>
+                            <th>Product Name</th>
+                            <th>Product Price</th>
+                            <th>Buying Quantity</th>
+                            <th>Date</th>
+                        </tr>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td><img src="@Url.Content(item.prductPicture)" class="img-circle" alt="Cinque Terre" width="100" height="100" /></td>
+                                <td>@Html.DisplayFor(modelItem => item.productName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.productPrice)</td>
+                                <td>@Html.DisplayFor(modelItem => item.buyingQuantity)</td>
+                                <td>@Html.DisplayFor(modelItem => item.buyingDate)</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Title{
+    History
+}
+
+@section header{
+    @ViewBag.userName Buying History
+}

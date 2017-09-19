@@ -1,0 +1,122 @@
+﻿@model IEnumerable<DorDam_ENTITY.Sub_Category>
+
+@{
+    ViewBag.Title = "addSubCategory";
+    Layout = "~/Views/Common/Admin_Common_View.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <i class="fa fa-plus-square" aria-hidden="true"></i>&nbsp;<strong>Adding Product</strong>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-striped">
+                        @using (Html.BeginForm("AddProduct", "AdminProduct"))
+                        {
+                        <tr>
+                            <td><strong>Product Name</strong> </td>
+                            <td><input type="text" id="nameID" name="nametxt" class="form-control" placeholder="Enter Product Name" onclick="hidename()"
+                                         required>
+                                <span id="errorMessagenameID"></span></td>
+                        </tr>
+                            
+                        <tr>
+                            <td><strong>Sub Category</strong></td>
+                            <td>
+                                <div class="form-group">
+                                    <select class="form-control" name="subCategoryDropDown">
+                                        @foreach (var item in Model)
+                                        {
+                                            <option value="@item.Id">@item.Sub_Category_Name</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </td>                          
+                        </tr>
+                            
+                        <tr>
+                            <td><strong>Product Price</strong></td>
+                            <td><input type="text" id="priceID" name="pricetxt" class="form-control" placeholder="Enter The Price" onclick="hidePrice()" 
+                                                    required><span id="errorMessagepriceID"></span></td>
+                        </tr>
+                            
+                        <tr>
+                            <td><strong>Product Quantity</strong></td>
+                            <td><input type="text" id="quantityID" name="quantitytxt" class="form-control" placeholder="Enter The Quanity" 
+                                                    onclick="hideQuantity()" required ><span id="errorMessagequantityID"></span></td>
+                        </tr>
+                            
+                        <tr>
+                            <td><strong>Product Picture Url</strong></td>
+                            <td><input type="text" id="picture" name="picturetxt" class="form-control" value="~/Picture/" required>
+                                <span id="errorMessage"></span></td>
+                        </tr>
+                            
+                        <tr>
+                            <td><strong>About The Product</strong></td>
+                            <td><input type="text" id="about" name="abouttxt" class="form-control" placeholder="Write Some Information About this product"
+                                                    style="width: 550px; height: 100px;" onclick="hide()" required><span id="errorMessage"></span></td>
+                        </tr>
+                                                      
+                        <tr>
+                            <td></td>
+                            <td align="right"><input type="submit" class="btn btn-info" id="btnSubmit" name="submitButton" value="Add the Product" 
+                                                     onclick="validate()"/></td>
+                        </tr>
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function displayMessage(message,id) {
+        var err = document.getElementById(id);
+        err.style.color = "red";
+        err.innerHTML = message;
+        err.style.visibility = 'visible';
+    }
+
+    function hidename() {
+        document.getElementById('errorMessagenameID').style.visibility = 'hidden';
+    }
+    function hidePrice() {
+        document.getElementById('errorMessagepriceID').style.visibility = 'hidden';
+    }
+    function hideQuantity() {
+        document.getElementById('errorMessagequantityID').style.visibility = 'hidden';
+    }
+
+    $(document).ready(function () {
+        $("#btnSubmit").click(function () {
+            var re = new RegExp("^[a-zA-Z0-9_ -]*$");
+            if (!re.test($("#nameID").val())) {
+                displayMessage('Only Letters And numbers are Allowed', 'errorMessage' + 'nameID');
+            }
+
+            var re2 = new RegExp("^[0-9]+$");
+            if (!re2.test($("#priceID").val())) {
+                displayMessage('Only Numbers are Allowed', 'errorMessage' + 'priceID');
+            }
+
+            if (!re2.test($("#quantityID").val())) {
+                displayMessage('Only Numbers are Allowed', 'errorMessage' + 'quantityID');
+            }
+        });
+    });
+</script>
+
+@section Title{
+    Admin
+}
+
+
+@section header{
+    Sub-Category Selection
+}

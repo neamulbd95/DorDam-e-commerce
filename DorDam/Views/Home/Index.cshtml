@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+<table class="table table-hover">
+    <tbody>
+        <tr>
+            <td class="table-hover">
+                <h5 align="center">Men</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.menid">
+    <img src="@ViewBag.menPic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.menName</h4></a>
+</td>
+
+            <td>
+                <h5 align="center">Women</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.womenID">
+    <img src="@ViewBag.womenPic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.womenName</h4></a>
+</td>
+
+            <td>
+                <h5 align="center">Mobile Phone</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.phoneID">
+    <img src="@ViewBag.phonePic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.phoneName</h4></a>
+</td>
+        </tr>
+        <tr>
+            <td><h5 align="center">Electronics</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.electroinicID">
+    <img src="@ViewBag.electronicPic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.electronicName</h4></a>
+</td>
+
+            <td><h5 align="center">Laptop</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.laptopID">
+    <img src="@ViewBag.laptopPic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.laptopName</h4></a>
+</td>
+
+            <td><h5 align="center">Sports</h5> <br /><a href="/SeclectProduct/SelectItem?productID=@ViewBag.sportsID">
+    <img src="@ViewBag.sportsPic" class="img-circle" alt="Cinque Terre" width="304" height:auto"><br />
+    <h4 align="center">@ViewBag.sportsName</h4></a>
+</td>
+        </tr>
+</tbody>
+</table>
+
+
+@section Title{
+    Home
+}
+
+
+@section header{
+    Latest Item
+}
+
+

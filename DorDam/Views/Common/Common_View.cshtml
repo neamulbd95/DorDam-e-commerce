@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@RenderSection("Title",false)</title>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>  
+
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/myDesign.js"></script>
+    <script src="~/Scripts/AutoSearch.js"></script>
+    @RenderSection("scripts", false)
+
+    <link href="~/Contents/font-awesome.css" rel="stylesheet" />
+    <link href="~/Contents/bootstrap.css" rel="stylesheet" />
+    <link href="~/Contents/style.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/Home">DorDam</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/Home"><span class="glyphicon glyphicon-home fa-2x"></span></a></li>
+                    <li><a href="/Category/Index?cat=1"><i class="fa fa-male fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="/Category/Index?cat=2"><i class="fa fa-female fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="/Category/Index?cat=3"><i class="fa fa-mobile fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="/Category/Index?cat=4"><i class="fa fa-television fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="/Category/Index?cat=5"><i class="fa fa-laptop fa-2x" aria-hidden="true"></i></a></li>
+                    <li><a href="/Category/Index?cat=6"><i class="fa fa-futbol-o fa-2x" aria-hidden="true"></i></a></li>
+                </ul>
+                @{
+                    if (ViewBag.logged== true)
+                    {
+                        <div class="nav navbar-nav navbar-right">
+                            <div class="btn-group">
+                                <a class="btn btn-group" href="/Cart/Index/"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
+                            </div> &nbsp; &nbsp;
+                            <div class="dropdown">
+                                <button onclick="myFunction()" class="dropbtn"><i class="fa fa-user"></i>&nbsp; @ViewBag.userName
+                                    <i class="fa fa-cog" aria-hidden="true"></i></button>
+                                <div id="myDropdown" class="dropdown-content">
+                                    <a href="/UserProfile/Index"><i class="fa fa-user-circle"></i> Show Profile</a>
+                                    <a href="#"><i class="fa fa-pencil fa-fw"></i> Edit Password</a>
+                                    <a href="/BuyingHistory/Index"><i class="fa fa-history"></i> Buying History</a>                                                                    
+                                    <a href="/userAuthentication/LogOut/"><i class="fa fa-sign-out"></i> LogOut</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a href="/UserProfile/Create/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                          <li><a href="/userAuthentication/Index/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+
+                    }
+}                
+            </div>
+        </nav>
+        <br />
+        @using (Html.BeginForm("Index", "Search"))
+        {
+            <div class="container">
+                <div class="input-group">
+                    <input type="text" id="searchTxtIdUser" name="nameSearch" class="form-control" placeholder="Search" required />
+                    <div class="input-group-btn">
+                        <button type="submit" class="btn btn-info">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }        
+        <br />
+        
+        <div class="headline-big-title-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="headline-bit-title text-center">
+                            <h2>@RenderSection("header", false)</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+
+        @RenderBody()
+    </div>
+</body>
+</html>

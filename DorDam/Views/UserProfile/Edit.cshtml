@@ -1,0 +1,45 @@
+﻿@model DorDam_ENTITY.User_Info
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+        <form action="/UserProfile/EditConfirmation/" method="post" id="signupForm">
+            <table class="table table-striped table-hover">
+                <tbody>
+                    <tr>
+                        <td><strong>Full Name</strong></td>
+                        <td><input type="text" id="fullname" name="fullnametxt" class="form-control" value="@Html.DisplayFor(model => model.User_Full_name)" required></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mobile Number</strong></td>
+                        <td><input type="text" id="mobile" name="mobiletxt" class="form-control" value="@Html.DisplayFor(model => model.User_Mobile)" required maxlength="11"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="right"><input type="submit" class="btn btn-primary" name="editCon" value="Confirmation"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+</div>
+    <div class="col-sm-3"></div>
+    <div class="col-sm-1"></div>
+</div>
+
+
+
+@section Title{
+    Profile
+}
+
+@section header{
+    @Html.DisplayFor(model => model.User_name) Profile Edit
+}
+
+

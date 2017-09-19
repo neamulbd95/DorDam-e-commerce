@@ -1,0 +1,141 @@
+﻿@model DorDam_ENTITY.Product
+
+@{
+    ViewBag.Title = "SelectIedItem";
+    Layout = "~/Views/Common/Common_View.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4" style="background-color:lavenderblush;">
+            <br />
+            <img src="@ViewBag.productPicture" id="myImg" class="img-rounded" alt="@Html.DisplayFor(model => model.Product_Name)" width="350" height="350"> 
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption"></div>
+            </div>
+
+        </div>
+        <div class="col-sm-4" style="background-color:lavender;"><br />
+            <table class="table table-hover">
+                <tbody>
+                    <tr>
+                        <td><dl>
+                                <dt class="text-success">Product Name</dt>
+                            </dl>    
+                         </td>
+                        <td>@Html.DisplayFor(model => model.Product_Name)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <dl>
+                                <dt class="text-success">Product Category</dt>
+                            </dl>
+                        </td>
+                        <td>@ViewBag.categoryName</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <dl>
+                                <dt class="text-success">Product Section</dt>
+                            </dl>
+                        </td>
+                        <td>@ViewBag.subcategoryName</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <dl>
+                                <dt class="text-success">Product Price</dt>
+                            </dl>
+                        </td>
+                        <td>@Html.DisplayFor(model => model.Product_Price)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <dl>
+                                <dt class="text-success">Product About</dt>
+                            </dl>
+                        </td>
+                        <td>@Html.DisplayFor(model => model.Product_About)</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <dl>
+                                <dt class="text-success">Product Availability</dt>
+                            </dl>
+                        </td>
+                        <td>@ViewBag.productStatus</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<br /> <br /> 
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2" style="background-color:lavenderblush;"></div>  
+        <div class="col-sm-2">
+            <dl>
+                <dt class="text-capitalize">Buying Quantity</dt>
+            </dl>  
+        </div>
+        @using (Html.BeginForm("AddingToCart","SeclectProduct"))
+            {    
+            <div class="col-sm-2" style="background-color:lavenderblush;">                         
+                <div class="form-group">
+                    <select class="form-control" id="quanity" name="quantityItem">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <input type="submit" class="btn btn-primary" name="addingCart" value="Add to Cart">
+            </div>
+            }
+        <div class="col-sm-2" style="background-color:lavenderblush;"></div>
+    </div>
+</div>
+
+<script>
+
+    var modal = document.getElementById('myModal');
+
+    var img = document.getElementById('myImg');
+    var modalImg = document.getElementById("img01");
+    var captionText = document.getElementById("caption");
+    img.onclick = function () {
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        captionText.innerHTML = this.alt;
+    }
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+
+@section Title{
+    Product Details
+}
+
+
+@section header{
+    Product Description
+}
